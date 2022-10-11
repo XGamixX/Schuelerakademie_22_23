@@ -16,3 +16,13 @@ func _process(delta):
 	# analog nach unten
 	if Input.is_action_pressed("ui_down"):
 		position.y = position.y + SPEED
+	
+	# Hausaufgabe: 	
+	if position.x > (1024 + 32):
+		position.x = -32
+	if position.x < -32: 
+		position.x = 1024 + 32
+	if position.y > 600 + 32:
+		position.y = -32
+	if position.y < -32:
+		position.y = 600 + 32

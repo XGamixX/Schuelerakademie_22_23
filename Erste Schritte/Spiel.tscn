@@ -6,6 +6,6 @@
 [node name="Spiel" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 320, 103 )
+position = Vector2( 197, 159 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
