@@ -9,3 +9,8 @@ func _on_Timer_timeout():
 	var obstacle = OBSTACLE.instance()
 	# die Instanz der Szene als Kind hinzufügen (Schritt 3):
 	add_child(obstacle)
+
+
+func _on_ScoreTimer_timeout():
+	GameState.current_score += 1
+	$ScoreLabel.text = "Score: " + str(GameState.current_score)

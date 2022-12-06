@@ -16,6 +16,7 @@ func _physics_process(_delta):
 	# Sprung der Katze nur, wenn die Katze auf dem Boden steht:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_SPEED
+		$AudioStreamPlayer.play()
 	
 	if is_on_floor():
 		$AnimatedSprite.play("walk")
@@ -26,4 +27,12 @@ func _physics_process(_delta):
 
 # Die Methode wird bei Kollision mit einem Obstacle ausgeführt
 func collision():
-	get_tree().quit()
+	# Überprüfe, ob der current_score größer ist als der bisherige highscore, 
+	# wenn ja, dann wird der Wert current_score als neuer highsore gesetzt. 
+	if GameState.current_score > GameState.highscore:
+		GameState.highscore = GameState.current_score
+	
+	# Damit das nächste Spiel mit current_score 0 startet, muss der current_score auch wieder auf 0 gesetzt werden
+	GameState.current_score = 0
+	# Wechsel zurück ins Menu:
+	get_tree().change_scene("res://Menu.tscn")
