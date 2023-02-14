@@ -1,5 +1,10 @@
 extends "res://Template/Moveable.gd"
 
+var last_position = Vector2()
+
+func _ready():
+	last_position = position
+
 
 func _unhandled_input(event):
 	if event.is_action_pressed("Up"):
@@ -14,16 +19,24 @@ func _unhandled_input(event):
 func move(direction):
 	if moving:
 		return
-	moving = true
-	direction *= TILE_SIZE
-	$Tween.interpolate_property(
-		self, 
-		"position", 
-		position, 
-		position + direction, 
-		SPEED,
-		Tween.TRANS_LINEAR,
-		Tween.EASE_OUT_IN,
-		0
-	)
-	$Tween.start()
+	if direction_free(direction):
+		moving = true
+		last_position = position
+		direction *= TILE_SIZE
+		$Tween.interpolate_property(
+			self, 
+			"position", 
+			position, 
+			position + direction, 
+			speed,
+			Tween.TRANS_LINEAR,
+			Tween.EASE_OUT_IN,
+			0
+		)
+		$Tween.start()
+
+
+func iAmBlocked():
+	$Tween.stop_all()
+	moving = false
+	position = last_position
