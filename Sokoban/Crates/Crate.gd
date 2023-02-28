@@ -1,5 +1,7 @@
 extends "res://Template/Moveable.gd"
 
+tool
+
 signal blocked
 
 
@@ -30,3 +32,9 @@ func move(direction):
 		$Tween.start()
 	else: 
 		emit_signal("blocked")
+
+
+func _get_configuration_warning():
+	if get_parent().name != "Crates":
+		return "Achtung, Crate muss immer unterhalb des Nodes Crates liegen!"
+	return ""

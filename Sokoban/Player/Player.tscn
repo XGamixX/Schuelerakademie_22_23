@@ -1,11 +1,24 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Template/Moveable.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/player.png" type="Texture" id=3]
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( -1, -31, 6, -30, 12, -28, 17, -25, 22, -21, 25, -17, 28, -11, 30, -5, 30, 2, 29, 8, 27, 13, 24, 18, 21, 22, 17, 25, 12, 28, 5, 30, -2, 30, -8, 28, -14, 26, -19, 23, -24, 17, -27, 11, -30, 3, -30, -4, -28, -12, -25, -17, -21, -22, -15, -26, -8, -29 )
+
 [node name="Player" instance=ExtResource( 1 )]
+collision_mask = 3
 script = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource( 2 )
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 3 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." index="7"]
+occluder = SubResource( 1 )
