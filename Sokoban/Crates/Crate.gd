@@ -6,7 +6,7 @@ signal blocked
 
 
 func _ready():
-	speed = 0.05
+	speed = 0.1
 
 func _on_Crate_area_entered(player):
 	var player_position = Vector2(player.global_position - global_position).normalized()

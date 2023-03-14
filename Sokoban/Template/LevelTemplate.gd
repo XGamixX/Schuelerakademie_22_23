@@ -8,4 +8,6 @@ func _ready():
 
 
 func _on_Goals_victory():
-	print("Du hast gewonnen!")
+	print(Gamestate.levels.size())
+	Gamestate.current_level += 1
+	Gamestate.load_level()
