@@ -34,7 +34,7 @@ func move(direction):
 			0
 		)
 		$Tween.start()
-
+		#$AudioStreamPlayer2D.
 
 func iAmBlocked():
 	$Tween.stop_all()
