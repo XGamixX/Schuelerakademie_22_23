@@ -34,6 +34,7 @@ func move(direction):
 			0
 		)
 		$Tween.start()
+		$PlayerSound.play()
 
 
 func iAmBlocked():

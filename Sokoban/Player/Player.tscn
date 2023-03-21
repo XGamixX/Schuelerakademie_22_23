@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Template/Moveable.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/player.png" type="Texture" id=3]
+[ext_resource path="res://SFX/Move.wav" type="AudioStream" id=4]
+[ext_resource path="res://Particles/PlayerTrails.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32, 32 )
@@ -22,3 +24,8 @@ texture = ExtResource( 3 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." index="7"]
 occluder = SubResource( 1 )
+
+[node name="PlayerSound" type="AudioStreamPlayer" parent="." index="8"]
+stream = ExtResource( 4 )
+
+[node name="PlayerTrails" parent="." index="9" instance=ExtResource( 5 )]
