@@ -2,7 +2,7 @@ extends Area2D
 
 const TILE_SIZE = 64
 
-var speed = 0.1
+var speed = 0.15
 var moving = false
 
 
