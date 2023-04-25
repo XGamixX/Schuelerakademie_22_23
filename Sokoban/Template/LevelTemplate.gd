@@ -7,5 +7,11 @@ func _ready():
 		crate.connect("blocked", Player, "iAmBlocked")
 
 
+
+func _on_VictoryParticles_particles_done():
+	Gamestate.current_level += 1
+	Gamestate.load_level()
+
+
 func _on_Goals_victory():
-	print("Du hast gewonnen!")
+	$VictorySound.play()

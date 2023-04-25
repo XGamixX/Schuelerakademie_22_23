@@ -25,7 +25,7 @@ texture = ExtResource( 3 )
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." index="7"]
 occluder = SubResource( 1 )
 
-[node name="PlayerSound" type="AudioStreamPlayer2D" parent="." index="8"]
+[node name="PlayerSound" type="AudioStreamPlayer" parent="." index="8"]
 stream = ExtResource( 4 )
 
 [node name="PlayerTrails" parent="." index="9" instance=ExtResource( 5 )]
