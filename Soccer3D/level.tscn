@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ud7g7wtvwwpr"]
+
+[ext_resource type="PackedScene" uid="uid://nse570yvbfr3" path="res://pitch.tscn" id="1_ii380"]
+[ext_resource type="PackedScene" uid="uid://dyt0etc7yhboy" path="res://ball.tscn" id="2_2c0od"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tq02h"]
+bounce = 0.5
+
+[node name="Level" type="Node3D"]
+
+[node name="Pitch" parent="." instance=ExtResource("1_ii380")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.926134, 0.377194, 0, -0.377194, 0.926134, 0, 4.81416, 8.91032)
+
+[node name="Ball" parent="." instance=ExtResource("2_2c0od")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+physics_material_override = SubResource("PhysicsMaterial_tq02h")
