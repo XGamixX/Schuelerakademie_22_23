@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://nse570yvbfr3"]
+
+[ext_resource type="Texture2D" uid="uid://cjc6mbsi6bgdq" path="res://Assets/tabletop.png" id="1_annar"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5x4hj"]
+size = Vector2(20, 16)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ewjl"]
+albedo_texture = ExtResource("1_annar")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2paic"]
+size = Vector3(20, 0.2, 16)
+
+[node name="Pitch" type="StaticBody3D"]
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_5x4hj")
+surface_material_override/0 = SubResource("StandardMaterial3D_7ewjl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_2paic")
